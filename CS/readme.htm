@@ -1,0 +1,34 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>How to serialize DockLayoutManager using TabbedDocumentUIService - Developer Express Example</title>
+<style>
+html, body, form 
+{
+	font-family: Tahoma, Arial, Verdana;
+    font-size: small;
+    color: #303440;
+}
+h1 {
+	font-size: 125%;
+	font-weight: normal;
+	color: Black;
+	letter-spacing: 101%;
+}
+</style>
+</head>
+<body>
+<h1>Developer Express Example<br />How to serialize DockLayoutManager using TabbedDocumentUIService</h1>
+<p>Some of DockLayoutManager?s panel groups can contain documents that were created from ViewModel with IDocumentManagerService. To serialize and restore them correctly, it is necessary to perform these steps:
+
+1. Create a style and set a name for DocumentPanel. To do this, bind DocumentPanel.BindableName to a unique property.
+
+2. Apply this style to all documents that will be created from ViewModel.
+
+3. Before serializing DockLayoutManager, serialize all documents created from ViewModel.
+
+4. Before restoring DockLayoutManager, recreate all documents created from ViewModel.</p>
+<p>You can find sample updates and versions for different programming languages here:<br /><a href="http://www.devexpress.com/example=T155653">http://www.devexpress.com/example=T155653</a>.</p>
+</body>
+</html>
