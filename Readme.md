@@ -1,3 +1,14 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Converter.cs](./CS/Converter.cs) (VB: [Converter.vb](./VB/Converter.vb))
+* [Document.xaml](./CS/Document.xaml) (VB: [Document.xaml.vb](./VB/Document.xaml.vb))
+* [Document.xaml.cs](./CS/Document.xaml.cs) (VB: [Document.xaml.vb](./VB/Document.xaml.vb))
+* [MainViewModel.cs](./CS/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/MainViewModel.vb))
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [ViewModel.cs](./CS/ViewModel.cs) (VB: [ViewModel.vb](./VB/ViewModel.vb))
+<!-- default file list end -->
 # How to: Serialize DockLayoutManager When TabbedDocumentUIService Is Used
 
 
