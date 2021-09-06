@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{19D9F0EF-921E-428D-9A45-00AE8D3C9D78}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <AssemblyName>Example2</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <BaseIntermediateOutputPath>obj.NetFX</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,20 +58,35 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v17.1">
+    <Reference Include="DevExpress.Data.v21.1">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Mvvm.v17.1">
+    <Reference Include="DevExpress.Mvvm.v21.1">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v17.1.Core">
+    <Reference Include="DevExpress.Office.v21.1.Core">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v17.1">
+    <Reference Include="DevExpress.RichEdit.v21.1.Core">
       <Private>True</Private>
     </Reference>
-    <Reference Include="devexpress.xpf.docking.v17.1" />
-    <Reference Include="DevExpress.Xpf.Layout.v17.1.Core">
+    <Reference Include="DevExpress.RichEdit.v21.1.Export">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v21.1.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.CodeView.v21.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v21.1">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="devexpress.xpf.docking.v21.1" />
+    <Reference Include="DevExpress.Xpf.Layout.v21.1.Core">
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
