@@ -3,7 +3,8 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T155653)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to: Serialize DockLayoutManager When TabbedDocumentUIService Is Used
+
+# WPF Dock Layout Manager - Serialize DockLayoutManager When You Use the TabbedDocumentUIService
 
 
 Some of DockLayoutManager’s panel groups can contain documents that were created from ViewModel with [IDocumentManagerService](https://docs.devexpress.com/WPF/18171/mvvm-framework/services/predefined-set/document-services). To serialize and restore them correctly, it is necessary to perform the following steps.
