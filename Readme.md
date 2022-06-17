@@ -8,7 +8,7 @@
 
 Some of DockLayoutManager’s panel groups can contain documents that were created from ViewModel with [IDocumentManagerService](https://docs.devexpress.com/WPF/18171/mvvm-framework/services/predefined-set/document-services). To serialize and restore them correctly, it is necessary to perform the following steps.
 
-Item names are used to identify items when saving/restoring the layout. For this reason, it will be necessary to set unique names for all DockLayoutManager panels. In the current scenario, this can be done by setting the DocumentPanel.[BindableName](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.BaseLayoutItem.BindableName) property in the [TabbedDocumentUIService.DocumentPanelStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.TabbedDocumentUIService.DocumentPanelStyle).
+Item names are used to identify items when saving/restoring the layout. For this reason, it is necessary to set unique names for all DockLayoutManager panels. In the current scenario, this can be done by setting the DocumentPanel.[BindableName](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.BaseLayoutItem.BindableName) property in the [TabbedDocumentUIService.DocumentPanelStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.TabbedDocumentUIService.DocumentPanelStyle).
 
 Another important point is that the DockLayoutManager's saving/restoring mechanism is not the [XamlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.windows.markup.xamlwriter?redirectedfrom=MSDN&view=windowsdesktop-6.0) alternative - it does not save/restore content of its panels. It will be necessary to additionally restore it. In this example, we used the following approach:
 
