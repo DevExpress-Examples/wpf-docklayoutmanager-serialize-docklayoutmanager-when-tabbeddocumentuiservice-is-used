@@ -10,7 +10,7 @@ Some of DockLayoutManager’s panel groups can contain documents that were creat
 
 Item names are used to identify items when saving/restoring the layout. For this reason, it is necessary to set unique names for all DockLayoutManager panels. In the current scenario, this can be done by setting the DocumentPanel.[BindableName](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.BaseLayoutItem.BindableName) property in the [TabbedDocumentUIService.DocumentPanelStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.TabbedDocumentUIService.DocumentPanelStyle).
 
-Another important point is that the DockLayoutManager's saving/restoring mechanism is not the [XamlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.windows.markup.xamlwriter?redirectedfrom=MSDN&view=windowsdesktop-6.0) alternative - it does not save/restore content of its panels. It will be necessary to additionally restore it. In this example, we used the following approach:
+Another important point is that the DockLayoutManager's save/restore mechanism is not the [XamlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.windows.markup.xamlwriter?redirectedfrom=MSDN&view=windowsdesktop-6.0) alternative — it does not save/restore the content of its panels. It is necessary to restore it. In this example, we use the following approach:
 
 1. Before saving layout settings, serialize all documents created from the ViewModel.
 2. Before restoring settings, recreate all documents.</p>
