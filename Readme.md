@@ -6,7 +6,8 @@
 # WPF Dock Layout Manager - Serialize DockLayoutManager When You Use the TabbedDocumentUIService
 
 
-Some of DockLayoutManager’s panel groups can contain documents that were created from ViewModel with [IDocumentManagerService](https://docs.devexpress.com/WPF/18171/mvvm-framework/services/predefined-set/document-services). To serialize and restore them correctly, it is necessary to perform the following steps.
+Some of DockLayoutManager’s panel groups can contain documents that were created from ViewModel with [IDocumentManagerService](https://docs.devexpress.com/WPF/18171/mvvm-framework/services/predefined-set/document-services). To serialize and restore these panels and their child documents correctly, it is necessary to perform the following steps.
+
 
 Item names are used to identify items when saving/restoring the layout. For this reason, it is necessary to set unique names for all DockLayoutManager panels. In the current scenario, this can be done by setting the DocumentPanel.[BindableName](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.BaseLayoutItem.BindableName) property in the [TabbedDocumentUIService.DocumentPanelStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Docking.TabbedDocumentUIService.DocumentPanelStyle).
 
