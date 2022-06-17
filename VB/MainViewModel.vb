@@ -1,125 +1,141 @@
-﻿Imports System.Collections.Generic
+Imports System.Collections.Generic
 Imports System.Windows.Input
 Imports DevExpress.Mvvm
 Imports System.Xml.Serialization
 Imports System.IO
 
 Namespace Example2
+
     Public Class MainViewModel
-        Inherits ViewModelBase
+        Inherits DevExpress.Mvvm.ViewModelBase
 
+        Private _ShowDocumentCommand As ICommand, _SaveDocsInfoCommand As ICommand, _RestoreDocsInfoCommand As ICommand
 
-        Private documents_Renamed As New List(Of DocumentInfo)()
-        Private names As New List(Of String)()
-        Private serializer As New XmlSerializer(GetType(List(Of DocumentInfo)))
+        Private documentsField As System.Collections.Generic.List(Of Example2.DocumentInfo) = New System.Collections.Generic.List(Of Example2.DocumentInfo)()
+
+        Private names As System.Collections.Generic.List(Of String) = New System.Collections.Generic.List(Of String)()
+
+        Private serializer As System.Xml.Serialization.XmlSerializer = New System.Xml.Serialization.XmlSerializer(GetType(System.Collections.Generic.List(Of Example2.DocumentInfo)))
+
         Private index As Integer = 0
 
-        Public Property Documents() As List(Of DocumentInfo)
+        Public Property Documents As List(Of Example2.DocumentInfo)
             Get
-                Return documents_Renamed
+                Return Me.documentsField
             End Get
-            Set(ByVal value As List(Of DocumentInfo))
-                documents_Renamed = value
+
+            Set(ByVal value As List(Of Example2.DocumentInfo))
+                Me.documentsField = value
             End Set
         End Property
 
-        Private privateShowDocumentCommand As ICommand
-        Public Property ShowDocumentCommand() As ICommand
+        Public Property ShowDocumentCommand As ICommand
             Get
-                Return privateShowDocumentCommand
+                Return _ShowDocumentCommand
             End Get
+
             Private Set(ByVal value As ICommand)
-                privateShowDocumentCommand = value
+                _ShowDocumentCommand = value
             End Set
         End Property
-        Private privateSaveDocsInfoCommand As ICommand
-        Public Property SaveDocsInfoCommand() As ICommand
+
+        Public Property SaveDocsInfoCommand As ICommand
             Get
-                Return privateSaveDocsInfoCommand
+                Return _SaveDocsInfoCommand
             End Get
+
             Private Set(ByVal value As ICommand)
-                privateSaveDocsInfoCommand = value
+                _SaveDocsInfoCommand = value
             End Set
         End Property
-        Private privateRestoreDocsInfoCommand As ICommand
-        Public Property RestoreDocsInfoCommand() As ICommand
+
+        Public Property RestoreDocsInfoCommand As ICommand
             Get
-                Return privateRestoreDocsInfoCommand
+                Return _RestoreDocsInfoCommand
             End Get
+
             Private Set(ByVal value As ICommand)
-                privateRestoreDocsInfoCommand = value
+                _RestoreDocsInfoCommand = value
             End Set
         End Property
-        Private ReadOnly Property DocumentManager() As IDocumentManagerService
+
+        Private ReadOnly Property DocumentManager As IDocumentManagerService
             Get
-                Return GetService(Of IDocumentManagerService)()
+                Return GetService(Of DevExpress.Mvvm.IDocumentManagerService)()
             End Get
         End Property
 
         Public Sub New()
-            ShowDocumentCommand = New DelegateCommand(Of String)(AddressOf OnShowDocumentCommandExecute)
-            SaveDocsInfoCommand = New DelegateCommand(Of String)(AddressOf SaveDocsInfo)
-            RestoreDocsInfoCommand = New DelegateCommand(Of String)(AddressOf RestoreDocsInfo)
+            Me.ShowDocumentCommand = New DevExpress.Mvvm.DelegateCommand(Of String)(AddressOf Me.OnShowDocumentCommandExecute)
+            Me.SaveDocsInfoCommand = New DevExpress.Mvvm.DelegateCommand(Of String)(AddressOf Me.SaveDocsInfo)
+            Me.RestoreDocsInfoCommand = New DevExpress.Mvvm.DelegateCommand(Of String)(AddressOf Me.RestoreDocsInfo)
         End Sub
 
-        Public Sub OnShowDocumentCommandExecute(ByVal document_Renamed As String)
-            ShowDocument(New DocumentInfo() With {.Document = document_Renamed})
+        Public Sub OnShowDocumentCommandExecute(ByVal document As String)
+            Me.ShowDocument(New Example2.DocumentInfo() With {.Document = document})
         End Sub
+
         Public Sub RestoreDocsInfo(ByVal path As String)
-            If File.Exists(path) Then
-                Using reader As TextReader = New StreamReader(path)
-                    RestoreDocuments(TryCast(serializer.Deserialize(reader), List(Of DocumentInfo)))
+            If System.IO.File.Exists(path) Then
+                Using reader As System.IO.TextReader = New System.IO.StreamReader(path)
+                    Me.RestoreDocuments(TryCast(Me.serializer.Deserialize(reader), System.Collections.Generic.List(Of Example2.DocumentInfo)))
                 End Using
             End If
         End Sub
-        Public Sub RestoreDocuments(ByVal values As List(Of DocumentInfo))
+
+        Public Sub RestoreDocuments(ByVal values As System.Collections.Generic.List(Of Example2.DocumentInfo))
             If values IsNot Nothing AndAlso values.Count > 0 Then
                 For Each docInfo In values
-                    ShowDocument(docInfo)
-                Next docInfo
+                    Me.ShowDocument(docInfo)
+                Next
             End If
         End Sub
+
         Public Sub SaveDocsInfo(ByVal path As String)
-            Using writer As TextWriter = New StreamWriter(path, False)
-                serializer.Serialize(writer, Documents)
+            Using writer As System.IO.TextWriter = New System.IO.StreamWriter(path, False)
+                Me.serializer.Serialize(writer, Me.Documents)
             End Using
         End Sub
 
-        Private Function CreateDocumentName(ByVal document_Renamed As String) As String
-            Dim name As String = document_Renamed & index
-            Do While names.Contains(name)
-                index += 1
-                name = document_Renamed & index
-            Loop
+        Private Function CreateDocumentName(ByVal document As String) As String
+            Dim name As String = document & Me.index
+            While Me.names.Contains(name)
+                Me.index += 1
+                name = document & Me.index
+            End While
+
             Return name
         End Function
-        Private Sub ShowDocument(ByVal docInfo As DocumentInfo)
-            Dim doc As IDocument = DocumentManager.CreateDocument(docInfo.Document, Nothing, Me)
+
+        Private Sub ShowDocument(ByVal docInfo As Example2.DocumentInfo)
+            Dim doc As DevExpress.Mvvm.IDocument = Me.DocumentManager.CreateDocument(docInfo.Document, Nothing, Me)
             doc.DestroyOnClose = True
-            If String.IsNullOrEmpty(docInfo.Name) Then
-                docInfo.Name = CreateDocumentName(docInfo.Document)
-            End If
-            TryCast(doc.Content, ViewModel).DocumentName = docInfo.Name
+            If String.IsNullOrEmpty(docInfo.Name) Then docInfo.Name = Me.CreateDocumentName(docInfo.Document)
+            TryCast(doc.Content, Example2.ViewModel).DocumentName = docInfo.Name
             doc.Title = docInfo.Name
             doc.Id = docInfo.Name
-            names.Add(docInfo.Name)
-            documents_Renamed.Add(docInfo)
+            Me.names.Add(docInfo.Name)
+            Me.documentsField.Add(docInfo)
             doc.Show()
         End Sub
 
         Private str As String = "Example"
-        Public Property StrValue() As String
+
+        Public Property StrValue As String
             Get
-                Return str
+                Return Me.str
             End Get
+
             Set(ByVal value As String)
-                str = value
+                Me.str = value
             End Set
         End Property
     End Class
 
     Public Class DocumentInfo
-        Public Property Name() As String
-        Public Property Document() As String
+
+        Public Property Name As String
+
+        Public Property Document As String
     End Class
 End Namespace
