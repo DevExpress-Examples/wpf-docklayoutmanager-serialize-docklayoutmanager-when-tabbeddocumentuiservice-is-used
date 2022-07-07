@@ -1,11 +1,12 @@
-﻿Imports System.Windows.Controls
+Imports System.Windows.Controls
 
 Namespace Example2
-    Partial Public Class Document
+
+    Public Partial Class Document
         Inherits UserControl
 
         Public Sub New()
-            InitializeComponent()
+            Me.InitializeComponent()
         End Sub
     End Class
 End Namespace
