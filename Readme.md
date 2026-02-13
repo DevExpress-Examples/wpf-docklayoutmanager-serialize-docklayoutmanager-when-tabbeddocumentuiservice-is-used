@@ -38,7 +38,7 @@ Another important point is that the DockLayoutManager's save/restore mechanism i
 - [Common Concepts - Save/Restore Control Layout](https://docs.devexpress.com/WPF/7391/common-concepts/save-and-restore-layouts)
 - [WPF Dock Layout Manager - Save and Restore the Layout of Dock Panels and Controls](https://docs.devexpress.com/WPF/7059/controls-and-libraries/layout-management/dock-windows/miscellaneous/saving-and-restoring-the-layout-of-dock-panels-and-controls)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-docklayoutmanager-serialize-docklayoutmanager-when-tabbeddocumentuiservice-is-used&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-docklayoutmanager-serialize-docklayoutmanager-when-tabbeddocumentuiservice-is-used&~~~was_helpful=no)
 
